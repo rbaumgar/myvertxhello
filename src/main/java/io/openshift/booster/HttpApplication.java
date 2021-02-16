@@ -11,7 +11,7 @@ import static io.vertx.core.http.HttpHeaders.CONTENT_TYPE;
 
 public class HttpApplication extends AbstractVerticle {
 
-    protected static final String template = "Hello v2 from OpenShift Eclipse Che, %s!";
+    protected static final String template = "Hello from OpenShift Eclipse Che, %s!";
 
     @Override
     public void start(Future<Void> future) {
@@ -25,7 +25,7 @@ public class HttpApplication extends AbstractVerticle {
         // Create the HTTP server and pass the "accept" method to the request handler.
         vertx.createHttpServer().requestHandler(router::accept).listen(
         // Retrieve the port from the configuration, default to 8080.
-        config().getInteger("http.port", 8080), ar -> {
+        config().getInteger("http.port", 8000), ar -> {
             if (ar.succeeded()) {
                 System.out.println("Server starter on port " + ar.result().actualPort());
             }
