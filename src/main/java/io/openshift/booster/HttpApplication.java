@@ -25,7 +25,7 @@ public class HttpApplication extends AbstractVerticle {
         // Create the HTTP server and pass the "accept" method to the request handler.
         vertx.createHttpServer().requestHandler(router::accept).listen(
         // Retrieve the port from the configuration, default to 8080.
-        config().getInteger("http.port", 8000), ar -> {
+        config().getInteger("http.port", 8080), ar -> {
             if (ar.succeeded()) {
                 System.out.println("Server starter on port " + ar.result().actualPort());
             }
